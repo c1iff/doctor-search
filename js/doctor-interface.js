@@ -4,9 +4,11 @@ var getDoctors = function(results) {
   results.data.forEach(function(each) {
     console.log(each);
     var distanceString = "";
-    if (parseInt(each.practices[0].distance) <= 1) {
+    if (parseInt(each.practices[0].distance) === 0) {
+      distanceString = 'Less Than 1 Mile Away</a>';
+    } else if(parseInt(each.practices[0].distance) === 1){
       distanceString = parseInt(each.practices[0].distance) + ' Mile Away</a>';
-    } else {
+    }else {
       distanceString = parseInt(each.practices[0].distance) + ' Miles Away</a>';
     }
     $('#results').append('<div class="card horizontal">' +
@@ -30,7 +32,16 @@ var getDoctors = function(results) {
     });
   };
 
+
 $(function(){
+  $('#condition-toggle').click(function() {
+    $('#search-name').hide()
+    $('#search-condition').toggle()
+  })
+  $('#doctor-name-toggle').click(function() {
+    $('#search-condition').hide()
+    $('#search-name').toggle()
+  })
   $('#search').click(function() {
     var newSearch = new DoctorSearch();
     searchValue = $('#search-value').val();

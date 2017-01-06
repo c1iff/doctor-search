@@ -21,7 +21,17 @@
     </nav>
     <div class="container">
       <h3>Find a Health Care Provider</h3>
-      <form>
+      <form action="#">
+        <p>
+          <input name="group1" type="radio" id="condition-toggle" />
+          <label for="condition-toggle">Search by Medical Condition</label>
+        </p>
+        <p>
+          <input name="group1" type="radio" id="doctor-name-toggle" />
+          <label for="doctor-name-toggle">Search By Physician Name</label>
+        </p>
+      </form>
+      <div id="search-condition">
         <div class="row">
           <div class="input-field col s6">
             <input id="search-value" type="text" class="validate">
@@ -29,43 +39,17 @@
           </div>
         </div>
         <button type="button" id="search" class="waves-effect waves-light btn">Search</button>
-      </form>
-
-
-
-
-
-      <div id="results" class="col s12 m7">
-<!--
-
-        '<div class="card horizontal">'
-          '<div>'
-            '<img src="http://lorempixel.com/100/190/nature/6" class="circle responsive-img">'
-          '</div>'
-          '<div class="card-stacked">'
-            '<div class="card-content">'
-              '<h3>Grochowski, Sabina T, MD</h3>'
-              '<h4>Internal Medicine</h4><br><hr>'
-              '<p>850 NW 5th Ave</p>'
-              '<p>Portland, OR</p>'
-              '<a href="#">555-555-1111</a>'
-            '</div>'
-            '<div class="card-action">'
-              '<a href="http://maps.google.com/?ll=**lat,**log">13 miles away</a>'
-            '</div>'
-          '</div>'
-        '</div>'
- -->
-
       </div>
-
-
-
-
-
-
-
-
+      <div id="search-name">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="search-value" type="text" class="validate">
+            <label for="search-value">Enter a Physicians Name</label>
+          </div>
+        </div>
+        <button type="button" id="search" class="waves-effect waves-light btn">Search</button>
+      </div>
+      <div id="results" class="col s12 m7"></div>
     </div>
   </body>
 </html>

@@ -56,7 +56,12 @@ $(document).ready(function(){
   })
   $('#search').click(function() {
     var newSearch = new DoctorSearch();
-    searchValue = $('#search-value').val();
+    var searchValue = $('#search-value').val();
     newSearch.getDoctors(searchValue, displayDoctors);
+  });
+  $('#search-name-button').click(function() {
+    var newSearch = new DoctorSearch();
+    var searchName = $('#search-value').val();
+    newSearch.getDoctorsByName(searchName, displayDoctors);
   });
 });

@@ -1,4 +1,4 @@
-$gray : #616161;
+$gray : #009688;
 
 
 nav ul a,
@@ -16,4 +16,21 @@ nav .brand-logo {
 
 #profile-pic {
   margin-left: 10px;
+}
+
+.nav-wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#icon {
+  width: 35px;
+  margin-top: 12px;
+  margin-right: 10px;
+  color: blue;
+}
+
+#name-value {
+  padding-top: 14px;
+
 }

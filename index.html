@@ -10,17 +10,18 @@
     <script type="text/javascript" src="build/js/app.js"></script>
   </head>
   <body>
-    <nav>
+    <nav class="white">
       <div class="nav-wrapper white">
-        <a href="index.html" class="brand-logo"><i class="large material-icons" id="brand">search</i>Find Health Care</a>
+        <img id="icon" src="icon.png">
+        <a href="index.html" class="brand-logo">Find Health Care</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html">Home</a></li>
-          <li><a href="badges.html">New Search</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">New Search</a></li>
         </ul>
       </div>
     </nav>
     <div class="container">
-      <h3>Find a Health Care Provider</h3>
+      <h4 class="center-align teal-text">Find a Health Care Provider</h4><br>
       <form action="#">
         <p>
           <input name="group1" type="radio" id="condition-toggle" />
@@ -43,19 +44,19 @@
       <div id="search-name">
         <div class="row">
           <div class="input-field col s6">
-            <input id="search-value" type="text" class="validate">
-            <label for="search-value">Enter a Physicians Name</label>
+            <input id="name-value" type="text" class="validate">
+            <label for="name-value">Enter a Physicians Name</label>
           </div>
           <div class="input-field col s6">
             <div class="input-field col s12">
               <select id="specialties-select">
-                
+
               </select>
               <label>Filter Results by Specialty</label>
             </div>
           </div>
         </div>
-        <button type="button" id="search" class="waves-effect waves-light btn">Search</button>
+        <button type="button" id="search-name-button" class="waves-effect waves-light btn">Search</button>
       </div>
       <div id="results" class="col s12 m7"></div>
     </div>

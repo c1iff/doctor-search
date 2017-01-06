@@ -23,7 +23,7 @@ var getDoctors = function(results) {
                                 '<a href="#">' + each.practices[0].phones[0].number + '</a>' +
                               '</div>' +
                               '<div class="card-action">' +
-                                '<a href="http://maps.google.com/?ll=' + each.practices[0].visit_address.lat + ',' + each.practices[0].visit_address.lon + '" target="_blank">' + distanceString +
+                                '<a href="http://maps.google.com/maps?q=loc:' + each.practices[0].visit_address.lat + ',' + each.practices[0].visit_address.lon + '" target="_blank">' + distanceString +
                               '</div>' +
                             '</div>' +
                           '</div>');

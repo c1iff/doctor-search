@@ -1,6 +1,6 @@
 var DoctorSearch = require('./../js/doctor-search.js').doctorModule;
 
-var getDoctors = function(results) {
+var displayDoctors = function(results) {
   results.data.forEach(function(each) {
     console.log(each);
     var distanceString = "";
@@ -32,8 +32,20 @@ var getDoctors = function(results) {
     });
   };
 
+  var displaySpecialties = function(results) {
+    results.data.forEach(function(each) {
+      $('select').material_select();
+      console.log(each);
+      $('#specialties-select').append('<option value="' + each.uid + '">' + each.name + '</option>');
+      });
+    };
 
-$(function(){
+
+
+$(document).ready(function(){
+  var newSpecialtyList = new DoctorSearch();
+  newSpecialtyList.getSpecialties(displaySpecialties);
+
   $('#condition-toggle').click(function() {
     $('#search-name').hide()
     $('#search-condition').toggle()
@@ -45,6 +57,6 @@ $(function(){
   $('#search').click(function() {
     var newSearch = new DoctorSearch();
     searchValue = $('#search-value').val();
-    newSearch.getDoctors(searchValue, getDoctors);
+    newSearch.getDoctors(searchValue, displayDoctors);
   });
 });

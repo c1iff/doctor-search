@@ -35,33 +35,41 @@ var displayDoctors = function(results) {
   var displaySpecialties = function(results) {
     results.data.forEach(function(each) {
       $('select').material_select();
-      console.log(each);
       $('#specialties-select').append('<option value="' + each.uid + '">' + each.name + '</option>');
       });
+      $('#loading').toggle();
+      $('#search-name').toggle();
     };
 
 
 
 $(document).ready(function(){
-  var newSpecialtyList = new DoctorSearch();
-  newSpecialtyList.getSpecialties(displaySpecialties);
 
   $('#condition-toggle').click(function() {
-    $('#search-name').hide()
-    $('#search-condition').toggle()
+    $('#results').empty();
+    $('#loading').hide();
+    $('#search-name').hide();
+    $('#search-condition').show();
   })
   $('#doctor-name-toggle').click(function() {
-    $('#search-condition').hide()
-    $('#search-name').toggle()
+    $('#results').empty();
+    $('#search-condition').hide();
+    $('#loading').show();
+    var newSpecialtyList = new DoctorSearch();
+    newSpecialtyList.getSpecialties(displaySpecialties);
   })
   $('#search').click(function() {
+    $('#results').empty();
     var newSearch = new DoctorSearch();
     var searchValue = $('#search-value').val();
     newSearch.getDoctors(searchValue, displayDoctors);
   });
   $('#search-name-button').click(function() {
+    console.log('button clicked');
+    $('#results').empty();
     var newSearch = new DoctorSearch();
     var searchName = $('#search-value').val();
-    newSearch.getDoctorsByName(searchName, displayDoctors);
+    var specialtieSearch = $('#specialties-select').val();
+    newSearch.getDoctorsByName(searchName, specialtieSearch, displayDoctors);
   });
 });

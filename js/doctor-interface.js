@@ -34,7 +34,7 @@ var displayDoctors = function(results) {
 
   var displaySpecialties = function(results) {
     results.data.forEach(function(each) {
-      $('select').material_select();
+      // $('select').material_select();
       $('#specialties-select').append('<option value="' + each.uid + '">' + each.name + '</option>');
       });
       $('#loading').toggle();
@@ -68,8 +68,9 @@ $(document).ready(function(){
     console.log('button clicked');
     $('#results').empty();
     var newSearch = new DoctorSearch();
-    var searchName = $('#search-value').val();
+    var searchName = $('#name-value').val();
     var specialtieSearch = $('#specialties-select').val();
+    console.log(searchName, 'special', specialtieSearch);
     newSearch.getDoctorsByName(searchName, specialtieSearch, displayDoctors);
   });
 });
